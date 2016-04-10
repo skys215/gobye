@@ -1,0 +1,180 @@
+@charset "utf-8";
+body {
+  margin: 0;
+  padding: 0;
+  //background: #005C97; /* fallback for old browsers */
+  //background: -webkit-linear-gradient(to left, #005C97 , #363795); /* Chrome 10-25, Safari 5.1-6 */
+  //background: linear-gradient(to left, #005C97 , #363795); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+}
+
+p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table; // 在容器的顶部和底部添加高度为 0 的标记
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+//清除两边浮动，撑大容器高度
+.clearfix {
+  zoom: 1;
+}
+
+// 针对 IE 6
+.main {
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80vh;
+  width: 24vw;
+  margin: 10vh auto;
+  min-height: 38rem;
+  min-width: 27rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.content{
+  border-top: 1px solid rgba(255,255,255,0.3);
+  min-height: 15rem;
+
+}
+.title{
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 5px;
+  margin: 3rem auto 0;
+}
+.area {
+  margin: 50px auto;
+  textarea{
+    display: block;
+    margin: 2rem auto;
+    resize: none;
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.6);
+    outline: none;
+    transition: all 0.3s;
+
+
+  }
+  textarea::-webkit-input-placeholder{
+    color:rgba(255,255,255,0.6);
+  }
+  textarea:focus{
+    border: 1px solid rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.8);
+  }
+}
+
+/* copy */
+.btn {
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  display: block;
+  font-size: 1.5rem;
+  line-height: 60px;
+  margin: 0 auto 2rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  width:auto;
+}
+.guide{
+  width: 9rem;
+  margin: 0 auto;
+}
+.btn:hover {
+  text-decoration: none;
+
+}
+
+.btn-1{
+  width: 200px;
+}
+.btn-1 svg {
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.btn-1 rect {
+  fill: none;
+  stroke: rgba(255,255,255,0.6);
+  stroke-width: 3;
+  stroke-dasharray: 600, 10;
+  -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+.btn-1:hover rect {
+  stroke-width: 5;
+  stroke-dasharray: 100, 409;
+  stroke-dashoffset: 200;
+  -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+
+.btn-2 {
+  letter-spacing: 5px;
+}
+
+.btn-2:hover,
+.btn-2:active {
+  letter-spacing: 5px;
+
+}
+
+.btn-2:after,
+.btn-2:before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  bottom: 0;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all 280ms ease-in-out;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.btn-2:hover:after
+/*,.btn-2:hover:before */{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: width 350ms ease-in-out;
+  transition: width 350ms ease-in-out;
+  width: 76%;
+}
+
+.btn-2:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 90%;
+}
