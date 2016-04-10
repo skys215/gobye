@@ -2,12 +2,10 @@
 body {
   margin: 0;
   padding: 0;
-  //background: #005C97; /* fallback for old browsers */
-  //background: -webkit-linear-gradient(to left, #005C97 , #363795); /* Chrome 10-25, Safari 5.1-6 */
-  //background: linear-gradient(to left, #005C97 , #363795); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: -webkit-linear-gradient(left, #25c481, #25b7c4);
   background: linear-gradient(to right, #25c481, #25b7c4);
-  font-family: 等线,微软雅黑;
+  font-family: 等线, 微软雅黑;
+  position: relative;
 }
 
 p {
@@ -15,104 +13,114 @@ p {
   -webkit-margin-after: 0;
 }
 
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table; // 在容器的顶部和底部添加高度为 0 的标记
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-//清除两边浮动，撑大容器高度
-.clearfix {
-  zoom: 1;
-}
-
-// 针对 IE 6
 .main {
   position: relative;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 80vh;
-  width: 24vw;
-  margin: 10vh auto;
-  min-height: 38rem;
-  min-width: 27rem;
-  border: 1px solid rgba(255,255,255,0.3);
+  margin: 0 auto;
+  width: 27em;
+  max-height: 38em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.content{
-  border-top: 1px solid rgba(255,255,255,0.3);
-  min-height: 15rem;
 
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
-.title{
+
+.content {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2em;
   font-weight: 500;
-  color: rgba(255,255,255,0.8);
-  letter-spacing: 5px;
-  margin: 3rem auto 0;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 4px;
+  margin: 1.5em auto 0;
 }
+
 .area {
-  margin: 50px auto;
-  textarea{
+  margin: 1em auto;
+  textarea {
     display: block;
-    margin: 2rem auto;
+    margin: 1.7em auto;
     resize: none;
     background-color: transparent;
-    border: 1px solid rgba(255,255,255,0.6);
-    font-size: 1.5rem;
-    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.6);
     outline: none;
     transition: all 0.3s;
     overflow-y: hidden;
-
-
   }
-  textarea::-webkit-input-placeholder{
-    color:rgba(255,255,255,0.6);
+  textarea::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.6);
   }
-  textarea:focus{
-    border: 1px solid rgba(255,255,255,0.8);
-    color: rgba(255,255,255,0.8);
+  textarea:focus {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* media query */
+@media screen and (max-width: 28em) {
+  .main {
+    border: none;
+  }
+}
+
+@media screen and(max-width: 350px) {
+  body {
+    font-size: 12px;
+  }
+  .title {
+    margin: 0 auto !important;
+  }
+  .btn {
+    margin: 0.8em auto !important;
+  }
+}
+
+@media screen and(max-height: 38em) and(min-width: 350px) {
+  body {
+    margin: 9em auto;
   }
 }
 
 /* copy */
 .btn {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   line-height: 60px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2em;
   position: relative;
   text-decoration: none;
   text-align: center;
   vertical-align: middle;
-  width:auto;
+  width: auto;
 }
-.guide{
-  width: 9rem;
+
+.guide {
+  width: 9em;
   margin: 0 auto;
 }
+
 .btn:hover {
   text-decoration: none;
 
 }
 
-.btn-1{
+.btn-1 {
   width: 200px;
 }
+
 .btn-1 svg {
   height: 60px;
   left: 0;
@@ -120,15 +128,15 @@ p {
   top: 0;
   width: 100%;
 }
+
 .btn-1 rect {
   fill: none;
-  stroke: rgba(255,255,255,0.6);
+  stroke: rgba(255, 255, 255, 0.6);
   stroke-width: 3;
   stroke-dasharray: 600, 10;
   -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
   transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
-
 
 .btn-1:hover rect {
   stroke-width: 5;
@@ -138,16 +146,8 @@ p {
   transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-
-
 .btn-2 {
-  letter-spacing: 5px;
-}
-
-.btn-2:hover,
-.btn-2:active {
-  letter-spacing: 5px;
-
+  letter-spacing: 2px;
 }
 
 .btn-2:after,
@@ -166,7 +166,8 @@ p {
 }
 
 .btn-2:hover:after
-/*,.btn-2:hover:before */{
+  /*,.btn-2:hover:before */
+{
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-color: rgba(255, 255, 255, 0.6);

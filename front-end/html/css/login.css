@@ -4,7 +4,8 @@ body {
   padding: 0;
   background: -webkit-linear-gradient(left, #25c481, #25b7c4);
   background: linear-gradient(to right, #25c481, #25b7c4);
-  font-family: 等线,微软雅黑;
+  font-family: 等线, 微软雅黑;
+  position: relative;
 }
 
 p {
@@ -12,63 +13,47 @@ p {
   -webkit-margin-after: 0;
 }
 
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.clearfix {
-  zoom: 1;
-}
-
 .main {
   position: relative;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 80vh;
-  width: 24vw;
-  margin: 10vh auto;
-  min-height: 38rem;
-  min-width: 27rem;
+  margin: 0 auto;
+  width: 27em;
+  max-height: 38em;
   border: 1px solid rgba(255, 255, 255, 0.3);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 .content {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
-  min-height: 15rem;
 }
 
 .title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2em;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 5px;
-  margin: 3rem auto 0;
+  letter-spacing: 4px;
+  margin: 1.5em auto 0;
 }
 
 .area {
-  margin: 50px auto;
+  margin: 1em auto;
 }
 .area textarea {
   display: block;
-  margin: 2rem auto;
+  margin: 1.7em auto;
   resize: none;
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  font-size: 1.5rem;
+  font-size: 1.5em;
   color: rgba(255, 255, 255, 0.6);
   outline: none;
   transition: all 0.3s;
@@ -82,14 +67,40 @@ p {
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* media query */
+@media screen and (max-width: 28em) {
+  .main {
+    border: none;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  body {
+    font-size: 12px;
+  }
+
+  .title {
+    margin: 0 auto !important;
+  }
+
+  .btn {
+    margin: 0.8em auto !important;
+  }
+}
+
+@media screen and (max-height: 38em) and (min-width: 350px) {
+  body {
+    margin: 9em auto;
+  }
+}
 /* copy */
 .btn {
   color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   line-height: 60px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2em;
   position: relative;
   text-decoration: none;
   text-align: center;
@@ -98,7 +109,7 @@ p {
 }
 
 .guide {
-  width: 9rem;
+  width: 9em;
   margin: 0 auto;
 }
 
@@ -136,12 +147,7 @@ p {
 }
 
 .btn-2 {
-  letter-spacing: 5px;
-}
-
-.btn-2:hover,
-.btn-2:active {
-  letter-spacing: 5px;
+  letter-spacing: 2px;
 }
 
 .btn-2:after,
