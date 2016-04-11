@@ -6,11 +6,29 @@ body {
   background: linear-gradient(to right, #25c481, #25b7c4);
   font-family: 等线, 微软雅黑;
   position: relative;
+  overflow: hidden;
 }
 
-p {
+/* 设置默认光标 */
+h1, p, .title {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .main {
@@ -24,17 +42,65 @@ p {
   box-sizing: border-box;
 }
 
-.container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
+/* 使用指南 */
+.hand-book {
+  position: absolute;
+  width: 100%;
+  height: 1%;
+  opacity: 0;
+  transition: all 0.6s;
+  text-align: center;
+  img {
+    width: 90%;
+    height: auto;
+    opacity: 0.6;
+
+  }
+  z-index: -3;
+  #close {
+    width: 6em;
+    height: 2em;
+    line-height: 2em;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  p {
+    font-size: 1em;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  transform: translate(0, 130%);
+}
+
+/* 使用指南的按钮 */
+#tm {
+  display: none;
+}
+
+#tm:checked ~ .hand-book {
+  z-index: 2;
+  opacity: 1;
+  transform: translate(0, 43%);
+  height: 100%;
+}
+
+#tm:checked ~ .content {
+  opacity: 0;
+}
+
+#tm:checked ~ #tm {
+  opacity: 0;
 }
 
 .content {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transition: all 0.5s;
 }
 
+.header {
+  opacity: 1;
+  transition: all 0.5s;
+}
 .title {
   text-align: center;
   font-size: 2em;
