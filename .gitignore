@@ -61,5 +61,9 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 
+<<<<<<< HEAD
 #IntelliJ Idea
+=======
+#Webstorm
+>>>>>>> 5f4cf524fa5f81e632f39520e42222a97e3d49de
 .idea/
