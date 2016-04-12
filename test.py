@@ -24,11 +24,11 @@ if all_text.find('学号')==-1 or all_text.find('主修专业')==-1:
     print "error"
 
 
-#获取专业及年纪
+#获取专业及年级
 stu_num = all_text[all_text.find('学号')+3:all_text.find('姓名')-2]
 stu_grade = stu_num[:4]
 loc_id = all_text.find('序号')#记录序号的位置
-stu_major = all_text[all_text.find('主修专业')+5:loc_id-4]
+stu_major = all_text[all_text.find('主修专业')+5:loc_id-3]
 
 
 #判断复制粘贴的顺序
