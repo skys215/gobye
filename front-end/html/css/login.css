@@ -23,7 +23,7 @@ h1, p, .title {
   cursor: default;
 }
 
-/* 居中布局 */
+/* 容器对对外框设置居中布局 */
 .container {
   width: 100vw;
   height: 100vh;
@@ -44,7 +44,7 @@ h1, p, .title {
   box-sizing: border-box;
 }
 
-/* 使用指南的容器 */
+/* 使用指南页面的容器 */
 .container2 {
   position: absolute;
   height: 100%;
@@ -85,42 +85,48 @@ h1, p, .title {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* 出发使用指南开关的按钮 */
+/* 使用指南开关按钮 */
 #tm {
   display: none;
 }
 
 #tm:checked ~ .container2 {
-  z-index: 5;
+    z-index: 2;
 }
 
 #tm:checked ~ .container2 .null {
-  height: 45%;
+    height: 41%;
 }
 
 #tm:checked ~ .header {
-  opacity: 0.6;
+    opacity: 0.3;
 }
 
 #tm:checked ~ .content {
   opacity: 0;
 }
 
-#tm:checked ~ #tm {
-  opacity: 0;
+/* 使用指南的打开按钮 */
+.guide {
+    width: 9em;
+    margin: 0 auto;
+    transition: all 0.5s;
 }
 
-.content {
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  opacity: 1;
-  transition: all 0.5s;
-}
-
+/* 外框的上半部分 */
 .header {
   opacity: 1;
   transition: all 0.5s;
 }
 
+/* 外框的下半部分 */
+.content {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+/* 标题 */
 .title {
   text-align: center;
   font-size: 2em;
@@ -130,6 +136,7 @@ h1, p, .title {
   margin: 1.5em auto 0;
 }
 
+/* 文本框 */
 .area {
   margin: 1em auto;
 }
@@ -153,7 +160,7 @@ h1, p, .title {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* media query */
+/* 媒体查询 响应式设计 */
 @media screen and (max-width: 28em) {
   .main {
     border: none;
@@ -177,7 +184,8 @@ h1, p, .title {
     margin: 9em auto;
   }
 }
-/* copy */
+
+/* 按钮的特效 */
 .btn {
   color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
@@ -190,11 +198,6 @@ h1, p, .title {
   text-align: center;
   vertical-align: middle;
   width: auto;
-}
-
-.guide {
-  width: 9em;
-  margin: 0 auto;
 }
 
 .btn:hover {
