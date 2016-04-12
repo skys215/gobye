@@ -4,7 +4,6 @@ import http.cookiejar
 import urllib.request
 import re
 import pymysql
-import html.parser
 
 url = 'http://192.168.2.224/pyfa/view_pyfa.asp'
 cookiejar = http.cookiejar.CookieJar()
