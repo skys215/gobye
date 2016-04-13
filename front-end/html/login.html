@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>学分统计小工具</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="javascript/login.js"></script>
+</head>
+<body>
+<div class="container">
+
+<div class="main">
+    <input type="checkbox" id="tm"/>
+    <div class="container2">
+        <div class="null"></div>
+    <div class="hand-book">
+        <p>① 点击上方链接，登陆个人信息查询系统</p><br>
+        <img src="../src/image/guide/02.png" alt="02">
+        <p>② 将「最新选课情况」的内容粘贴至方框一</p><br>
+        <img src="../src/image/guide/03.png" alt="03">
+        <p>③ 将「各学期成绩」的内容粘贴至方框二</p><br>
+        <label for="tm" class="btn" id="close">知道了</label>
+    </div>
+    </div>
+    <div class="header">
+        <div class="title">学分统计小工具</div>
+        <div class="guide"><label for="tm" class="btn">使用指南</label></div>
+        <div class="information"><a href="http://192.168.2.20/axsxx/AASZUstd.ASP"
+                                    target="_blank" class="btn">
+            点击进入学生信息查询系统
+        </a></div>
+    </div>
+    <div class="content">
+        <div class="area">
+                <textarea name="select-course" id="select-course" cols="28" rows="2" required
+                          placeholder="将「最新选课情况」的内容粘贴至此"></textarea>
+            <textarea name="grade" id="grade" cols="28" rows="2" required placeholder="将「各学期成绩」的内容粘贴至此"></textarea>
+        </div>
+        <div class="confirm">
+
+            <a href="#" class="btn btn-1">
+                <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                </svg>
+                开始分析
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
