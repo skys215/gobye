@@ -10,6 +10,8 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 #
 
+UPDATEMAJOR = 0;#标记一下专业是否更新过。
+
 def delSpace(all_text):
     while all_text.find('\r\n')!=-1:
         all_text = all_text.replace('\r\n','\n')
@@ -157,12 +159,24 @@ def myFind(course_name, course_num,result_now, result_pre, result_fail):
                 return 1
     return 0
 
-def updateType(result,profess_id,index):
+def updateType(result,profess_id,index, stu_grade, collega):
+    global UPDATEMAJOR
     for i in range(0,len(result)):
         iget = plan.objects.filter(Q(profess_id=profess_id)).filter(course_name__contains=str(result[i][index]))
         a = iget
         if a:
             result[i][4] = a[0].course_type
+        elif result[i][4]=='必修' and UPDATEMAJOR==0:#此判断为是否为院内的其他专业,如计软的数计班或国际班等
+            iget = plan.objects.filter(course_name__contains=str(result[i][index]))
+            a = iget
+            for x in a:
+                iget = professes.objects.filter(id=x.profess_id).filter(year=stu_grade).filter(collega = collega)#学院、年级相同,认为是院内的其他专业
+                a2 = iget
+                if a2:#若年级符合,则认为专业需要更新
+                    profess_id = x.profess_id
+                    UPDATEMAJOR = 1
+                    break
+    return profess_id#返回最新的专业id
 
 #去除课程的英文名。
 def Format(find_cource):
@@ -181,11 +195,14 @@ def Compare(stu_major,stu_grade,result_now,result_pre,result_fail,creditNeed):
 
     if not iget:#找不到相关专业可能是由于未分专业
         iget = professes.objects.filter(year = stu_grade).filter(collega = stu_major)
-    if not iget:#如果还找不到就说明有学分了。
+    if not iget:#如果还找不到就说明有问题了。
         print 1
         return 0
-
     profess_id = iget[0].id
+    collega = iget[0].collega
+
+    profess_id = updateType(result_now,profess_id,5, stu_grade, collega)#更新已修课程的课程类型,同时判断是否需要更新专业id
+    profess_id = updateType(result_pre,profess_id,3, stu_grade, collega)
 
     iget = gpas.objects.filter(profess_id=str(profess_id))
 
@@ -199,9 +216,6 @@ def Compare(stu_major,stu_grade,result_now,result_pre,result_fail,creditNeed):
     a = list(iget)
     for x in a:
         find_course.append(x)
-    
-    updateType(result_now,profess_id,5)#更新已修课程的课程类型
-    updateType(result_pre,profess_id,3)
 
     i = 0
     j = 0

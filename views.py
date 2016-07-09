@@ -17,8 +17,9 @@ def result(request):
         top_info = request.POST.get('select-course')
         bottom_info = request.POST.get('grade')
     
-    all_text = top_info.decode('utf-8')+bottom_info.decode('utf-8') 
-	# all_text = open('test.txt').read().decode('gb2312')
+    all_text = top_info+bottom_info
+    if all_text.find(u'学号')==-1 or all_text.find(u'主修专业')==-1:#先判断是否需要解码
+        all_text = top_info.decode('gb18030')+bottom_info.decode('gb18030') 
     #删除多余换行
     all_text = delSpace(all_text)
 
@@ -78,8 +79,8 @@ def result(request):
             Sort(CourseP, CoursePE, CourseM, CourseME, result_pre, 4, 1)
             Sort(CourseP, CoursePE, CourseM, CourseME, result_now, 4, 2)
 
-        creditLack = [creditNeed[0] - creditGet[0],creditNeed[1] - creditGet[1],creditNeed[2] - creditGet[2],creditNeed[3] - creditGet[3]]
-        lack = creditLack[0]+creditLack[1]+creditLack[2]+creditLack[3]
+        creditLack = [float(creditNeed[0] - creditGet[0]),float(creditNeed[1] - creditGet[1]),float(creditNeed[2] - creditGet[2]),float(creditNeed[3] - creditGet[3])]
+        lack = float(creditLack[0]+creditLack[1]+creditLack[2]+creditLack[3])
 
     except :
         return HttpResponse("Error")
